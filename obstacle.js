@@ -4,6 +4,14 @@ class Obstacle {
         this.y = y;
         this.mass = mass;
         this.velocity = {x : random(-4, 4), y : random(0, 1)};
+        this.collided = false;
+    }
+
+    // check collision with player
+    checkCollision(x, y, r) {
+        if (dist(x, y, this.x, this.y) < (r + (this.mass * 10 / 2))) {
+            this.collided = true;
+        }
     }
 
     update() {

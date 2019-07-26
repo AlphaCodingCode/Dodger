@@ -3,6 +3,14 @@ class Player {
         this.x = x;
         this.y = y;
         this.speed = 15;
+        this.hp = 3;
+    }
+
+    doDmg(dmg) {
+        this.hp = constrain(this.hp - dmg, 0, 1000);
+        if (this.hp == 0) {
+            GAMEOVER = true;
+        }
     }
 
     update() {
